@@ -5,7 +5,7 @@ const en: RequiredLocaleType = {
   WIP: "Coming Soon...",
   Error: {
     Unauthorized:
-      "Unauthorized access, please enter access code in [auth](/#/auth) page.",
+      "Your membership experience has expired. Please visit the [Membership](/#/pay) to recharge.",
   },
   Auth: {
     Title: "Need Access Code",
@@ -73,7 +73,10 @@ const en: RequiredLocaleType = {
       if (submitKey === String(SubmitKey.Enter)) {
         inputHints += ", Shift + Enter to wrap";
       }
-      return inputHints + ", / to search prompts";
+      return (
+        inputHints +
+        ", / to search prompts, generate picture start with /mj description, Do not line break"
+      );
     },
     Send: "Send",
     Config: {
