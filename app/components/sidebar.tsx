@@ -53,7 +53,6 @@ function useHotKey() {
     return () => window.removeEventListener("keydown", onKeyDown);
   });
 }
-
 function useDragSideBar() {
   const limit = (x: number) => Math.min(MAX_SIDEBAR_WIDTH, x);
 
@@ -136,13 +135,6 @@ export function SideBar(props: { className?: string }) {
           onClick={() => navigate(Path.NewChat, { state: { fromHome: true } })}
           shadow
         />
-        <IconButton
-          icon={<PluginIcon />}
-          text={shouldNarrow ? undefined : Locale.Plugin.Name}
-          className={styles["sidebar-bar-button"]}
-          onClick={() => showToast(Locale.WIP)}
-          shadow
-        />
       </div>
 
       <div
@@ -174,9 +166,14 @@ export function SideBar(props: { className?: string }) {
             </Link>
           </div>
           <div className={styles["sidebar-action"]}>
-            <a href={REPO_URL} target="_blank">
-              <IconButton icon={<GithubIcon />} shadow />
-            </a>
+            <IconButton
+              icon={<GithubIcon />}
+              onClick={() => {
+                if (window.top !== null && window.top !== undefined) {
+                  window.top.location.href = "https://chat.yunai.com.cn/#/pay";
+                }
+              }}
+            />
           </div>
         </div>
         <div>

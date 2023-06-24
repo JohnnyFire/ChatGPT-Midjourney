@@ -75,7 +75,7 @@ const en: RequiredLocaleType = {
       }
       return (
         inputHints +
-        ", / to search prompts, generate picture start with /mj description, Do not line break"
+        ", / to search prompts, generate picture start with /mj description."
       );
     },
     Send: "Send",

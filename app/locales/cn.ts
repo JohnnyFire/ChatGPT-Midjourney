@@ -3,8 +3,7 @@ import { SubmitKey } from "../store/config";
 const cn = {
   WIP: "该功能仍在开发中……",
   Error: {
-    Unauthorized:
-      "您的会员体验已到期，请前往[会员服务](/#/pay)页了解更多服务。",
+    Unauthorized: "您的会员体验已到期，请前往[会员服务](/#/pay)页了解更多。",
   },
   Auth: {
     Title: "需要密码",
@@ -71,10 +70,7 @@ const cn = {
       if (submitKey === String(SubmitKey.Enter)) {
         inputHints += "，Shift + Enter 换行";
       }
-      return (
-        inputHints +
-        "，/ 触发补全，如果您想生成图片，请您使用/mj 后面是英文描述，不要有换行。"
-      );
+      return inputHints + "，/ 触发补全，生成图片使用/mj 描述";
     },
     Send: "发送",
     Config: {
