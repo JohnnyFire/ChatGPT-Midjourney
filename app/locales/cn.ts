@@ -70,7 +70,7 @@ const cn = {
       if (submitKey === String(SubmitKey.Enter)) {
         inputHints += "，Shift + Enter 换行";
       }
-      return inputHints + "，直接输入图片描述。 --v 5逼真风格 --niji 5漫画风格，默认是两者之一，可更改后缀。";
+      return inputHints + "，直接输入图片描述。 --v 5逼真风格 --niji 5漫画风格，默认是两者之一，可更改后缀, 推荐更好比例 --ar 16:9 --s 750 --v 5";
     },
     Send: "发送",
     Config: {

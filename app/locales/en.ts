@@ -74,7 +74,7 @@ const en: RequiredLocaleType = {
       }
       return (
         inputHints +
-        "，directly input the image description, if you want another mode, example: end with --v 5. by default --niji 5 "
+        "，directly input the image description, if you want another mode, example: end with --v 5. by default --niji 5, recommand: --ar 16:9 --s 750 --v 5 "
       );
     },
     Send: "Send",

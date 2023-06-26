@@ -121,7 +121,7 @@ export function SideBar(props: { className?: string }) {
         <div className={styles["sidebar-title"]}>
           Midjourney画图识图
         </div>
-        <div className={styles["sidebar-sub-title"]}>您的智能服务管家。</div>
+        <div className={styles["sidebar-sub-title"]}>芸爱智宝，您的智能服务管家。</div>
         <div className={styles["sidebar-logo"] + " no-dark"}>
           <ChatGptIcon />
         </div>
