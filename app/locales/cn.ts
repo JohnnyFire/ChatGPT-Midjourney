@@ -21,7 +21,7 @@ const cn = {
     ModeBlend: "混图模式",
     ModeDescribe: "识图（图生文）模式",
     NeedInputUseImgPrompt:
-      "垫图模式下需要输入内容才能使用图片，请以“/mj”开头输入内容",
+      "垫图模式下需要输入内容才能使用图片",
     BlendMinImg: (min: number) => `混图模式下至少需要 ${min} 张图片`,
     TaskErrUnknownType: "任务提交失败：未知的任务类型",
     TaskErrNotSupportType: (type: string) =>
@@ -70,7 +70,7 @@ const cn = {
       if (submitKey === String(SubmitKey.Enter)) {
         inputHints += "，Shift + Enter 换行";
       }
-      return inputHints + "，/ 触发补全，生成图片使用/mj 描述";
+      return inputHints + "，直接输入图片描述。 --v 5逼真风格 --niji 5漫画风格，默认是两者之一，可更改后缀。";
     },
     Send: "发送",
     Config: {

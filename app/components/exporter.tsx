@@ -438,7 +438,7 @@ export function ImagePreviewer(props: {
 
           <div>
             <div className={styles["main-title"]}>
-              芸爱智宝 ChatGPT+Midjourney
+              芸爱智宝 Midjourney
             </div>
             <div className={styles["sub-title"]}>
               https://chat.yunai.com.cn/#/mj

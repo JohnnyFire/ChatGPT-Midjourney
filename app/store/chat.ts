@@ -355,7 +355,7 @@ export const useChatStore = create<ChatStore>()(
                             resolve(false);
                         });
                     }
-                    content = `/mj ${extAttr?.mjImageMode}`;
+                    content = `${extAttr?.mjImageMode}`;
                     extAttr.useImages.forEach((img: any, index: number) => {
                         content += `::[${index + 1}]${img.filename}`;
                     });
@@ -404,12 +404,14 @@ export const useChatStore = create<ChatStore>()(
                 // make request
                 console.log("[User Input] ", sendMessages);
                 if (
-                    content.toLowerCase().startsWith("/mj") ||
-                    content.toLowerCase().startsWith("/MJ")
+                    1===1
+                    // content.toLowerCase().startsWith("/mj") ||
+                    // content.toLowerCase().startsWith("/MJ")
                 ) {
                     botMessage.model = "midjourney";
                     const startFn = async () => {
-                        const prompt = content.substring(3).trim();
+                        // const prompt = content.substring(3).trim();
+                        const prompt = content.trim();
                         let action: string = "IMAGINE";
                         const firstSplitIndex = prompt.indexOf("::");
                         if (firstSplitIndex > 0) {

@@ -917,7 +917,7 @@ export function Chat() {
                                                 <div>
                                                     <button
                                                         onClick={() =>
-                                                            doSubmit(`/mj UPSCALE::1::${message.attr.taskId}`)
+                                                            doSubmit(`UPSCALE::1::${message.attr.taskId}`)
                                                         }
                                                         className={`${styles["chat-message-action-btn"]} clickable`}
                                                     >
@@ -925,7 +925,7 @@ export function Chat() {
                                                     </button>
                                                     <button
                                                         onClick={() =>
-                                                            doSubmit(`/mj UPSCALE::2::${message.attr.taskId}`)
+                                                            doSubmit(`UPSCALE::2::${message.attr.taskId}`)
                                                         }
                                                         className={`${styles["chat-message-action-btn"]} clickable`}
                                                     >
@@ -933,7 +933,7 @@ export function Chat() {
                                                     </button>
                                                     <button
                                                         onClick={() =>
-                                                            doSubmit(`/mj UPSCALE::3::${message.attr.taskId}`)
+                                                            doSubmit(`UPSCALE::3::${message.attr.taskId}`)
                                                         }
                                                         className={`${styles["chat-message-action-btn"]} clickable`}
                                                     >
@@ -941,7 +941,7 @@ export function Chat() {
                                                     </button>
                                                     <button
                                                         onClick={() =>
-                                                            doSubmit(`/mj UPSCALE::4::${message.attr.taskId}`)
+                                                            doSubmit(`UPSCALE::4::${message.attr.taskId}`)
                                                         }
                                                         className={`${styles["chat-message-action-btn"]} clickable`}
                                                     >
@@ -953,7 +953,7 @@ export function Chat() {
                                                     <button
                                                         onClick={() =>
                                                             doSubmit(
-                                                                `/mj VARIATION::1::${message.attr.taskId}`,
+                                                                `VARIATION::1::${message.attr.taskId}`,
                                                             )
                                                         }
                                                         className={`${styles["chat-message-action-btn"]} clickable`}
@@ -963,7 +963,7 @@ export function Chat() {
                                                     <button
                                                         onClick={() =>
                                                             doSubmit(
-                                                                `/mj VARIATION::2::${message.attr.taskId}`,
+                                                                `VARIATION::2::${message.attr.taskId}`,
                                                             )
                                                         }
                                                         className={`${styles["chat-message-action-btn"]} clickable`}
@@ -973,7 +973,7 @@ export function Chat() {
                                                     <button
                                                         onClick={() =>
                                                             doSubmit(
-                                                                `/mj VARIATION::3::${message.attr.taskId}`,
+                                                                `VARIATION::3::${message.attr.taskId}`,
                                                             )
                                                         }
                                                         className={`${styles["chat-message-action-btn"]} clickable`}
@@ -983,7 +983,7 @@ export function Chat() {
                                                     <button
                                                         onClick={() =>
                                                             doSubmit(
-                                                                `/mj VARIATION::4::${message.attr.taskId}`,
+                                                                `VARIATION::4::${message.attr.taskId}`,
                                                             )
                                                         }
                                                         className={`${styles["chat-message-action-btn"]} clickable`}

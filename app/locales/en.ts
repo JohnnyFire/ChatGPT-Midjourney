@@ -23,7 +23,7 @@ const en: RequiredLocaleType = {
     ModeBlend: "Blend Mode",
     ModeDescribe: "Describe Mode",
     NeedInputUseImgPrompt:
-      'You need to enter content to use the image in the mask mode, please enter the content starting with "/mj"',
+      'You need to enter content to use the image in the mask mode',
     BlendMinImg: (min: number) =>
       `At least ${min} images are required in the blend mode`,
     TaskErrUnknownType: "Task submission failed: unknown task type",
@@ -75,7 +75,7 @@ const en: RequiredLocaleType = {
       }
       return (
         inputHints +
-        ", / to search prompts, generate picture start with /mj description."
+        "，directly input the image description, if you want another mode, example: end with --v 5. by default --niji 5 "
       );
     },
     Send: "Send",

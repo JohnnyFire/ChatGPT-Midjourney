@@ -8,7 +8,7 @@ const buildConfig = getBuildConfig();
 
 export const metadata = {
   title: "芸爱智宝",
-  description: "Your personal ChatGPT+Midjourney Chat Bot.",
+  description: "Your personal Midjourney Chat Bot.",
   viewport: {
     width: "device-width",
     initialScale: 1,
