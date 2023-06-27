@@ -10,7 +10,7 @@ async function handle(
   console.log("[OpenAI Route] params ", params);
 
   const authResult = auth(req);
-  if (authResult.error) {
+  if ((await authResult).error) {
     return NextResponse.json(authResult, {
       status: 401,
     });

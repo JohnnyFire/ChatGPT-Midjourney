@@ -29,7 +29,7 @@ const en: RequiredLocaleType = {
     TaskErrNotSupportType: (type: string) =>
       `Task submission failed: unsupported task type -> ${type}`,
     StatusCode: (code: number) => `Status code: ${code}`,
-    TaskSubmitErr: (err: string) => `Task submission failed: ${err}`,
+    TaskSubmitErr: (err: string) => `Task submission failed: your experience expired, please retry after recharge.${err}`,
     RespBody: (body: string) => `Response body: ${body}`,
     None: "None",
     UnknownError: "Unknown error",
@@ -225,7 +225,7 @@ const en: RequiredLocaleType = {
   },
   Store: {
     DefaultTopic: "New Conversation",
-    BotHello: "Hello! How can I assist you today?",
+    BotHello: "Hello, just enter the picture description directly. If you want to specify the specification, the correct way is: (Draw me a puppy --ar 16:9 --s 750 --v 5), the parameters are all lowercase. pair-",
     Error: "Something went wrong, please try again later.",
     Prompt: {
       History: (content: string) =>

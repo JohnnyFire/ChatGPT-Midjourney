@@ -27,7 +27,7 @@ const cn = {
     TaskErrNotSupportType: (type: string) =>
       `任务提交失败：不支持的任务类型 -> ${type}`,
     StatusCode: (code: number) => `状态码：${code}`,
-    TaskSubmitErr: (err: string) => `任务提交失败：${err}`,
+    TaskSubmitErr: (err: string) => `任务提交失败：您的体验已到期，请您充值后重试${err}`,
     RespBody: (body: string) => `响应体：${body}`,
     None: "无",
     UnknownError: "未知错误",
@@ -219,7 +219,7 @@ const cn = {
   },
   Store: {
     DefaultTopic: "新的聊天",
-    BotHello: "有什么可以帮你的吗",
+    BotHello: "你好，直接输入图片描述即可。如果你想指定规格，正确的方式如: （给我画一张小狗 --ar 16:9 --s 750 --v 5）, 参数都为小写。双-,两个-,比如--v 5",
     Error: "出错了，稍后重试吧",
     Prompt: {
       History: (content: string) => "这是历史聊天总结作为前情提要：" + content,

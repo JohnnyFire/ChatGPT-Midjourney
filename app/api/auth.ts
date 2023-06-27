@@ -1,8 +1,24 @@
-import { NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { getServerSideConfig } from "../config/server";
 import md5 from "spark-md5";
 import { ACCESS_CODE_PREFIX } from "../constant";
-import { OPENAI_URL } from "./common";
+
+interface UserInfo {
+  userId: string;
+  openId: string;
+  userName: string;
+  roles: string[];
+  avatar: string;
+  introduction: string;
+  telephone: string;
+  referralCode: string;
+  referredBy: string;
+  expireOn: string;
+  mjExpireOn: string;
+  ifAgent: boolean;
+  withdrawn: number;
+  historyWithdrawn: number;
+}
 
 function getIP(req: NextRequest) {
   let ip = req.ip ?? req.headers.get("x-real-ip");
@@ -25,8 +41,9 @@ function parseApiKey(bearToken: string) {
   };
 }
 
-export function auth(req: NextRequest, skipCustomKey = true) {
+export async function auth(req: NextRequest, skipCustomKey = true) {
   // const authToken = req.headers.get("Authorization") ?? req.nextUrl.searchParams.get("Authorization") ?? "";
+  const authToken0 = req.cookies.get('YUNAI-ACCESS-TOKEN')?.value
   const authToken = "ak-258199199";
 
   // check if it is openai api key or user token
@@ -63,7 +80,44 @@ export function auth(req: NextRequest, skipCustomKey = true) {
     console.log("[Auth] use user api key");
   }
 
+// TODO: 根据实际情况解析 token 获取用户信息
+  if(!authToken0){
+    return {
+      error: true,
+      msg: "YUNAI-ACCESS-TOKEN is null, please login again.",
+    };
+  }
+  const userInfo = await getUserInfoFromToken(authToken0);
+  if(isExpired(userInfo.mjExpireOn)){
+    return {
+      error: true,
+      msg: "你好，"+userInfo.userName+" ，您的体验期已经于" + userInfo.mjExpireOn + "日过期，请您购买AI生图服务",
+    };
+  }
   return {
     error: false,
   };
+}
+
+async function getUserInfoFromToken(token: string): Promise<UserInfo> {
+  // TODO: 根据实际情况使用给定的 token 获取用户信息
+  // 示例：假设这里是请求后端接口来获取用户信息
+  const response = await fetch(`https://chat.yunai.com.cn/yunai-api/user/info/${token}`);
+  const data = await response.json();
+
+  return data.data as UserInfo;
+}
+function isExpired(mjExpireOn: string): boolean {
+  const today = new Date();
+  const expireDate = new Date(mjExpireOn);
+
+  // 移除小时、分钟和秒的信息，只保留日期
+  today.setHours(0, 0, 0, 0);
+  expireDate.setHours(0, 0, 0, 0);
+
+  if (expireDate < today) {
+    return true; // 过期
+  } else {
+    return false; // 未过期
+  }
 }
