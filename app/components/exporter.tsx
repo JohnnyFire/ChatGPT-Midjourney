@@ -443,11 +443,6 @@ export function ImagePreviewer(props: {
             <div className={styles["sub-title"]}>
               https://chat.yunai.com.cn/#/mj
             </div>
-            <div className={styles["icons"]}>
-              <ExportAvatar avatar={config.avatar} />
-              <span className={styles["icon-space"]}>&</span>
-              <ExportAvatar avatar={mask.avatar} />
-            </div>
           </div>
           <div>
             <div className={styles["chat-info-item"]}>
