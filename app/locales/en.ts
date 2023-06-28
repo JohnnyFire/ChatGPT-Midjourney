@@ -29,7 +29,7 @@ const en: RequiredLocaleType = {
     TaskErrNotSupportType: (type: string) =>
       `Task submission failed: unsupported task type -> ${type}`,
     StatusCode: (code: number) => `Status code: ${code}`,
-    TaskSubmitErr: (err: string) => `Task submission failed: your experience expired, please retry after recharge.${err}`,
+    TaskSubmitErr: (err: string) => `Task submission failed: your experience expired, please retry after recharge [Membership](/#/pay).${err}`,
     RespBody: (body: string) => `Response body: ${body}`,
     None: "None",
     UnknownError: "Unknown error",
@@ -74,7 +74,7 @@ const en: RequiredLocaleType = {
       }
       return (
         inputHints +
-        "，directly input the image description, if you want another mode, example: end with --v 5. by default --niji 5, recommand: --ar 16:9 --s 750 --v 5 "
+        "，Hello, just enter the picture description directly. For example: Chinese couples, blue sky and white clouds, children playing and playing, white clouds, lakes, beauties, lawns. DreamWorks Pictures --ar 16:9 --s 750 --v 5 , the parameters are all lowercase in English. Double-, two-, such as --v 5"
       );
     },
     Send: "Send",
@@ -225,7 +225,7 @@ const en: RequiredLocaleType = {
   },
   Store: {
     DefaultTopic: "New Conversation",
-    BotHello: "Hello, just enter the picture description directly. If you want to specify the specification, the correct way is: (Draw me a puppy --ar 16:9 --s 750 --v 5), the parameters are all lowercase. pair-",
+    BotHello: "Hello, just enter the picture description directly. If you want to specify the specifications, please refer to the correct way: [Midjourney Parameters and Style Encyclopedia](https://mp.weixin.qq.com/s/aEPZT1T_hbQm3se1mutCvw) For example: Chinese couples, blue sky and white clouds, children playing and playing, white clouds , lakes, beauties, lawns. DreamWorks Pictures --ar 16:9 --s 750 --v 5 , the parameters are all lowercase in English. Double-, two-, such as --v 5",
     Error: "Something went wrong, please try again later.",
     Prompt: {
       History: (content: string) =>

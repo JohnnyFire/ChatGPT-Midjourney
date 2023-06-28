@@ -27,7 +27,7 @@ const cn = {
     TaskErrNotSupportType: (type: string) =>
       `任务提交失败：不支持的任务类型 -> ${type}`,
     StatusCode: (code: number) => `状态码：${code}`,
-    TaskSubmitErr: (err: string) => `任务提交失败：您的体验已到期，请您充值后重试${err}`,
+    TaskSubmitErr: (err: string) => `任务提交失败：您的会员体验已到期，请前往[会员服务](/#/pay)页充值后重试${err}`,
     RespBody: (body: string) => `响应体：${body}`,
     None: "无",
     UnknownError: "未知错误",
@@ -70,7 +70,7 @@ const cn = {
       if (submitKey === String(SubmitKey.Enter)) {
         inputHints += "，Shift + Enter 换行";
       }
-      return inputHints + "，直接输入图片描述。 --v 5逼真风格 --niji 5漫画风格，默认是两者之一，可更改后缀, 推荐更好比例 --ar 16:9 --s 750 --v 5";
+      return inputHints + "，例如：中国情侣，蓝天白云，小孩嬉戏打闹，白云，湖泊，美女，草坪。梦工厂影业 --ar 16:9 --s 750 --v 5 , 参数都为英文小写。双-,两个-,比如--v 5";
     },
     Send: "发送",
     Config: {
@@ -219,7 +219,7 @@ const cn = {
   },
   Store: {
     DefaultTopic: "新的聊天",
-    BotHello: "你好，直接输入图片描述即可。如果你想指定规格，正确的方式如: （给我画一张小狗 --ar 16:9 --s 750 --v 5）, 参数都为小写。双-,两个-,比如--v 5",
+    BotHello: "你好，直接输入图片描述即可。如果你想指定规格，正确的方式请参考: [Midjourney 参数和风格大全](https://mp.weixin.qq.com/s/aEPZT1T_hbQm3se1mutCvw) 例如：中国情侣，蓝天白云，小孩嬉戏打闹，白云，湖泊，美女，草坪。梦工厂影业 --ar 16:9 --s 750 --v 5 , 参数都为英文小写。双-,两个-,比如--v 5",
     Error: "出错了，稍后重试吧",
     Prompt: {
       History: (content: string) => "这是历史聊天总结作为前情提要：" + content,
