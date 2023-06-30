@@ -29,7 +29,7 @@ const en: RequiredLocaleType = {
     TaskErrNotSupportType: (type: string) =>
       `Task submission failed: unsupported task type -> ${type}`,
     StatusCode: (code: number) => `Status code: ${code}`,
-    TaskSubmitErr: (err: string) => `Task submission failed: your experience expired, please retry after recharge [Membership](/#/pay).${err}`,
+    TaskSubmitErr: (err: string) => `Task submission failed: please query yapd008 as your servant from wechat.${err}`,
     RespBody: (body: string) => `Response body: ${body}`,
     None: "None",
     UnknownError: "Unknown error",
@@ -40,7 +40,7 @@ const en: RequiredLocaleType = {
     TaskSubmitOk: "Task submitted successfully",
     TaskStatusFetchFail: "Failed to get task status",
     TaskStatus: "Task status",
-    TaskRemoteSubmit: "Task has been submitted to Midjourney server",
+    TaskRemoteSubmit: "Task has been submitted to server, if there is no response, please ask yapd008 from wechat.",
     TaskProgressTip: (progress: number | undefined) =>
       `Task is running${progress ? `, current progress: ${progress}` : ""}`,
     TaskNotStart: "Task has not started",
@@ -55,7 +55,7 @@ const en: RequiredLocaleType = {
     ChatItemCount: (count: number) => `${count} messages`,
   },
   Chat: {
-    SubTitle: (count: number) => `${count} messages with ChatGPT`,
+    SubTitle: (count: number) => `${count} messages with MidJourney`,
     Actions: {
       ChatList: "Go To Chat List",
       CompressedHistory: "Compressed History Memory Prompt",

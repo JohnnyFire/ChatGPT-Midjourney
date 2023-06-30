@@ -27,7 +27,7 @@ const cn = {
     TaskErrNotSupportType: (type: string) =>
       `任务提交失败：不支持的任务类型 -> ${type}`,
     StatusCode: (code: number) => `状态码：${code}`,
-    TaskSubmitErr: (err: string) => `任务提交失败：您的会员体验已到期，请前往[会员服务](/#/pay)页充值后重试${err}`,
+    TaskSubmitErr: (err: string) => `任务提交失败：麻烦添加微信yapd008获取更多帮助 ${err}`,
     RespBody: (body: string) => `响应体：${body}`,
     None: "无",
     UnknownError: "未知错误",
@@ -38,7 +38,7 @@ const cn = {
     TaskSubmitOk: "任务提交成功",
     TaskStatusFetchFail: "任务状态获取失败",
     TaskStatus: "任务状态",
-    TaskRemoteSubmit: "任务已提交至Midjourney服务器",
+    TaskRemoteSubmit: "任务已提交至服务器，如无响应请联系yapd008微信获取更多帮助，midjourney服务器有时会屏蔽关键词。",
     TaskProgressTip: (progress: number | undefined) =>
       `任务正在运行${progress ? `，当前进度：${progress}` : ""}`,
     TaskNotStart: "任务尚未开始",
