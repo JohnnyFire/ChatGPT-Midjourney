@@ -27,7 +27,7 @@ const cn = {
     TaskErrNotSupportType: (type: string) =>
       `任务提交失败：不支持的任务类型 -> ${type}`,
     StatusCode: (code: number) => `状态码：${code}`,
-    TaskSubmitErr: (err: string) => `任务提交失败：麻烦添加微信yapd008获取更多帮助 ${err}`,
+    TaskSubmitErr: (err: string) => `任务提交失败：长时间未操作，登录已过期||体验已到期，刷新/重新登录如问题依然存在麻烦添加微信yapd008获取更多帮助 ${err}`,
     RespBody: (body: string) => `响应体：${body}`,
     None: "无",
     UnknownError: "未知错误",
@@ -239,6 +239,10 @@ const cn = {
     Add: "新增预设对话",
     Clear: "上下文已清除",
     Revert: "恢复上下文",
+  },
+  MjToText: {
+    Text: "已切换为GPT聊天模式",
+    Revert: "恢复为MidJourney生图模式",
   },
   Plugin: {
     Name: "插件",

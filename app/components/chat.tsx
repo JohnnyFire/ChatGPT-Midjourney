@@ -14,6 +14,8 @@ import MaxIcon from "../icons/max.svg";
 import MinIcon from "../icons/min.svg";
 import ResetIcon from "../icons/reload.svg";
 import BreakIcon from "../icons/break.svg";
+import ImageIcon from "../icons/image.svg";
+import TextIcon from "../icons/text.svg";
 import SettingsIcon from "../icons/chat-settings.svg";
 
 import LightIcon from "../icons/light.svg";
@@ -33,6 +35,7 @@ import {
     Theme,
     useAppConfig,
     DEFAULT_TOPIC,
+    MJModel,
 } from "../store";
 
 import {
@@ -62,7 +65,6 @@ import {useMaskStore} from "../store/mask";
 import {useCommand} from "../command";
 import {prettyObject} from "../utils/format";
 import {ExportMessageModal} from "./exporter";
-import {Button} from "emoji-picker-react/src/components/atoms/Button";
 import Image from "next/image";
 
 const Markdown = dynamic(async () => (await import("./markdown")).Markdown, {
@@ -305,6 +307,7 @@ function useScrollToBottom() {
         scrollToBottom,
     };
 }
+let myMJVariable = 'image';
 
 export function ChatActions(props: {
     showPromptModal: () => void;
@@ -326,6 +329,18 @@ export function ChatActions(props: {
         const nextIndex = (themeIndex + 1) % themes.length;
         const nextTheme = themes[nextIndex];
         config.update((config) => (config.theme = nextTheme));
+    }
+
+    // switch model
+    const model = config.model;
+
+    function nextModel() {
+        const models = [MJModel.Image, MJModel.Text];
+        const modelIndex = models.indexOf(model);
+        const nextIndex = (modelIndex + 1) % models.length;
+        const nextModel = models[nextIndex];
+        setMyMJVariable(nextModel);
+        config.update((config) => (config.model = nextModel));
     }
 
     // stop all responses
@@ -426,6 +441,17 @@ export function ChatActions(props: {
 
             <div
                 className={`${chatStyle["chat-input-action"]} clickable`}
+                onClick={nextModel}
+            >
+                {model === MJModel.Image ? (
+                    <ImageIcon/>
+                ) : model === MJModel.Text ? (
+                    <TextIcon/>
+                ) : <ImageIcon/>}
+            </div>
+
+            <div
+                className={`${chatStyle["chat-input-action"]} clickable`}
                 onClick={selectImage}
             >
                 <input
@@ -439,6 +465,15 @@ export function ChatActions(props: {
             </div>
         </div>
     );
+}
+
+export function getMyMJVariable() {
+
+    return myMJVariable;
+}
+
+export function setMyMJVariable(value: MJModel) {
+    myMJVariable = value;
 }
 
 export function Chat() {
@@ -1035,7 +1070,7 @@ export function Chat() {
                 {useImages.length > 0 && (
                     <div className={styles["chat-select-images"]}>
                         {useImages.map((img: any, i) => (
-                            <img
+                            <Image
                                 src={img.base64}
                                 key={i}
                                 onClick={() => {

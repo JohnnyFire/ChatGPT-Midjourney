@@ -5,7 +5,7 @@ import {trimTopic} from "../utils";
 
 import Locale from "../locales";
 import {showToast} from "../components/ui-lib";
-import {ModelType} from "./config";
+import {ModelType, MJModel} from "./config";
 import {createEmptyMask, Mask} from "./mask";
 import {StoreKey} from "../constant";
 import {
@@ -402,8 +402,14 @@ export const useChatStore = create<ChatStore>()(
 
                 // make request
                 console.log("[User Input] ", sendMessages);
+                let model = 'image'
+                const value = localStorage.getItem('app-config');
+                if (value) {
+                    const config = JSON.parse(value);
+                    model = config.state.model;
+                }        
                 if (
-                    1===1
+                    model=== MJModel.Image
                     // content.toLowerCase().startsWith("/mj") ||
                     // content.toLowerCase().startsWith("/MJ")
                 ) {
@@ -722,7 +728,7 @@ export const useChatStore = create<ChatStore>()(
                     api.llm.chat({
                         messages: topicMessages,
                         config: {
-                            model: "gpt-3.5-turbo",
+                            model: "gpt-3.5-turbo-16k-0613",
                         },
                         onFinish(message) {
                             get().updateCurrentSession(

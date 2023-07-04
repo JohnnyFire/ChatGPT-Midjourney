@@ -20,65 +20,69 @@ interface UserInfo {
   historyWithdrawn: number;
 }
 
-function getIP(req: NextRequest) {
-  let ip = req.ip ?? req.headers.get("x-real-ip");
-  const forwardedFor = req.headers.get("x-forwarded-for");
+// function getIP(req: NextRequest) {
+//   let ip = req.ip ?? req.headers.get("x-real-ip");
+//   const forwardedFor = req.headers.get("x-forwarded-for");
 
-  if (!ip && forwardedFor) {
-    ip = forwardedFor.split(",").at(0) ?? "";
-  }
+//   if (!ip && forwardedFor) {
+//     ip = forwardedFor.split(",").at(0) ?? "";
+//   }
 
-  return ip;
-}
+//   return ip;
+// }
 
-function parseApiKey(bearToken: string) {
-  const token = bearToken.trim().replaceAll("Bearer ", "").trim();
-  const isOpenAiKey = !token.startsWith(ACCESS_CODE_PREFIX);
+// function parseApiKey(bearToken: string) {
+//   const token = bearToken.trim().replaceAll("Bearer ", "").trim();
+//   const isOpenAiKey = !token.startsWith(ACCESS_CODE_PREFIX);
 
-  return {
-    accessCode: isOpenAiKey ? "" : token.slice(ACCESS_CODE_PREFIX.length),
-    apiKey: isOpenAiKey ? token : "",
-  };
-}
+//   return {
+//     accessCode: isOpenAiKey ? "" : token.slice(ACCESS_CODE_PREFIX.length),
+//     apiKey: isOpenAiKey ? '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' : "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",
+//   };
+// }
 
 export async function auth(req: NextRequest, skipCustomKey = true) {
   // const authToken = req.headers.get("Authorization") ?? req.nextUrl.searchParams.get("Authorization") ?? "";
   const authToken0 = req.cookies.get('YUNAI-ACCESS-TOKEN')?.value
-  const authToken = "ak-258199199";
+  // const authToken = "ak-258199199";
 
-  // check if it is openai api key or user token
-  const { accessCode, apiKey: token } = parseApiKey(authToken);
+  // // check if it is openai api key or user token
+  // const { accessCode, apiKey: token } = parseApiKey(authToken);
 
-  const hashedCode = md5.hash(accessCode ?? "").trim();
+  // const hashedCode = md5.hash(accessCode ?? "").trim();
 
-  const serverConfig = getServerSideConfig();
-  console.log("[Auth] allowed hashed codes: ", [...serverConfig.codes]);
-  console.log("[Auth] got access code:", accessCode);
-  console.log("[Auth] hashed access code:", hashedCode);
-  console.log("[User IP] ", getIP(req));
-  console.log("[Time] ", new Date().toLocaleString());
+  // const serverConfig = getServerSideConfig();
+  // console.log("[Auth] allowed hashed codes: ", [...serverConfig.codes]);
+  // console.log("[Auth] got access code:", accessCode);
+  // console.log("[Auth] hashed access code:", hashedCode);
+  // console.log("[User IP] ", getIP(req));
+  // console.log("[Time] ", new Date().toLocaleString());
 
-  if (serverConfig.needCode && !serverConfig.codes.has(hashedCode)) {
-    if (!token || !skipCustomKey) {
-      return {
-        error: true,
-        msg: !accessCode ? "empty access code" : "wrong access code",
-      };
-    }
-  }
+  // if (serverConfig.needCode && !serverConfig.codes.has(hashedCode)) {
+  //   if (!token || !skipCustomKey) {
+  //     return {
+  //       error: true,
+  //       msg: !accessCode ? "empty access code" : "wrong access code",
+  //     };
+  //   }
+  // }
 
   // if user does not provide an api key, inject system api key
-  if (!token) {
-    const apiKey = serverConfig.apiKey;
-    if (apiKey) {
-      console.log("[Auth] use system api key");
-      req.headers.set("Authorization", `Bearer ${apiKey}`);
-    } else {
-      console.log("[Auth] admin did not provide an api key");
-    }
-  } else {
-    console.log("[Auth] use user api key");
-  }
+  // if (!token) {
+  //   const apiKey = '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';
+  //   if (apiKey) {
+  //     console.log("[Auth] use system api key");
+  //     req.headers.set("Authorization", `Bearer ${apiKey}`);
+  //   } else {
+  //     console.log("[Auth] admin did not provide an api key");
+  //   }
+  // } else {
+  //   const apiKey = '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';
+  //   req.headers.set("Authorization", `Bearer ${apiKey}`);
+  //   console.log("[Auth] use user api key");
+  // }
+  const apiKey = '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';
+  req.headers.set("Authorization", `Bearer ${apiKey}`);
 
 // TODO: 根据实际情况解析 token 获取用户信息
   if(!authToken0){

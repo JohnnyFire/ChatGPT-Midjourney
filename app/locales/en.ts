@@ -29,7 +29,7 @@ const en: RequiredLocaleType = {
     TaskErrNotSupportType: (type: string) =>
       `Task submission failed: unsupported task type -> ${type}`,
     StatusCode: (code: number) => `Status code: ${code}`,
-    TaskSubmitErr: (err: string) => `Task submission failed: please query yapd008 as your servant from wechat.${err}`,
+    TaskSubmitErr: (err: string) => `Task submission failed: login session has expired or your experience has expired, please refresh to login, if you are using mobile, please re-click the menu from yunaizhibao, if issue still exist, please query yapd008 as your servant from wechat.${err}`,
     RespBody: (body: string) => `Response body: ${body}`,
     None: "None",
     UnknownError: "Unknown error",
@@ -246,6 +246,10 @@ const en: RequiredLocaleType = {
     Add: "Add a Prompt",
     Clear: "Context Cleared",
     Revert: "Revert",
+  },
+  MjToText: {
+    Text: "Switched to GPT chat mode",
+    Revert: "Revert to MidJourney image generation mode",
   },
   Plugin: {
     Name: "Plugin",

@@ -15,7 +15,8 @@ export class ChatGPTApi implements LLMApi {
   public SubsPath = "dashboard/billing/subscription";
 
   path(path: string): string {
-    let openaiUrl = useAccessStore.getState().openaiUrl;
+    // let openaiUrl = useAccessStore.getState().openaiUrl;
+    let openaiUrl = 'https://api.openai.com'
     if (openaiUrl.endsWith("/")) {
       openaiUrl = openaiUrl.slice(0, openaiUrl.length - 1);
     }

@@ -16,11 +16,17 @@ export enum Theme {
   Light = "light",
 }
 
+export enum MJModel {
+  Text = "text",
+  Image = "image",
+}
+
 export const DEFAULT_CONFIG = {
   submitKey: SubmitKey.Enter as SubmitKey,
   avatar: "1f603",
   fontSize: 14,
   theme: Theme.Auto as Theme,
+  model: MJModel.Image as MJModel,
   tightBorder: false,
   sendPreviewBubble: true,
   sidebarWidth: 300,
@@ -30,7 +36,7 @@ export const DEFAULT_CONFIG = {
   dontShowMaskSplashScreen: true, // dont show splash screen when create chat
 
   modelConfig: {
-    model: "gpt-3.5-turbo" as ModelType,
+    model: "gpt-3.5-turbo-16k-0613" as ModelType,
     temperature: 0.5,
     max_tokens: 2000,
     presence_penalty: 0,
