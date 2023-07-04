@@ -60,31 +60,31 @@ const ENABLE_GPT4 = true;
 export const ALL_MODELS = [
   {
     name: "gpt-4",
-    available: ENABLE_GPT4,
+    available: true,
   },
   {
     name: "gpt-4-0314",
-    available: ENABLE_GPT4,
+    available: true,
   },
   {
     name: "gpt-4-32k",
-    available: ENABLE_GPT4,
+    available: true,
   },
   {
     name: "gpt-4-32k-0314",
-    available: ENABLE_GPT4,
+    available: true,
   },
   {
     name: "gpt-4-mobile",
-    available: ENABLE_GPT4,
+    available: true,
   },
   {
     name: "gpt-4-0613",
-    available: ENABLE_GPT4,
+    available: true,
   },
   {
     name: "gpt-4-32k-0613",
-    available: ENABLE_GPT4,
+    available: true,
   },
   {
     name: "text-davinci-002-render-sha-mobile",
