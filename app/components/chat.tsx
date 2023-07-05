@@ -876,7 +876,7 @@ export function Chat() {
                                 <div className={styles["chat-message-container"]}>
                                     <div className={styles["chat-message-avatar"]}>
                                         {message.role === "user" ? (
-                                            <Avatar avatar={config.avatar}/>
+                                            <Avatar avatar={localStorage.getItem('avatar') ?? 'https://thirdwx.qlogo.cn/mmopen/vi_32/1vE4Mon2duwpq1ia1U56tGfaDSGlLqg0AMIkCOg7Hh8dwl5toWxYUGic57icZ39vXcAYSr4WuA6aeSRBiazNGnPO1Q/132'} />
                                         ) : (
                                             <MaskAvatar mask={session.mask}/>
                                         )}
