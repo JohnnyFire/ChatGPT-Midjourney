@@ -55,7 +55,7 @@ const en: RequiredLocaleType = {
     ChatItemCount: (count: number) => `${count} messages`,
   },
   Chat: {
-    SubTitle: (count: number) => `${count} messages with MidJourney`,
+    SubTitle: (count: number) => `${count} messages with yunaizhibao`,
     Actions: {
       ChatList: "Go To Chat List",
       CompressedHistory: "Compressed History Memory Prompt",

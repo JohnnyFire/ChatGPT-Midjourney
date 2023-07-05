@@ -37,7 +37,7 @@ interface UserInfo {
 
 //   return {
 //     accessCode: isOpenAiKey ? "" : token.slice(ACCESS_CODE_PREFIX.length),
-//     apiKey: isOpenAiKey ? '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' : "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",
+//     apiKey: isOpenAiKey ? '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' : "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",
 //   };
 // }
 
@@ -69,7 +69,7 @@ export async function auth(req: NextRequest, skipCustomKey = true) {
 
   // if user does not provide an api key, inject system api key
   // if (!token) {
-  //   const apiKey = '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';
+  //   const apiKey = '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';
   //   if (apiKey) {
   //     console.log("[Auth] use system api key");
   //     req.headers.set("Authorization", `Bearer ${apiKey}`);
@@ -77,11 +77,11 @@ export async function auth(req: NextRequest, skipCustomKey = true) {
   //     console.log("[Auth] admin did not provide an api key");
   //   }
   // } else {
-  //   const apiKey = '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';
+  //   const apiKey = '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';
   //   req.headers.set("Authorization", `Bearer ${apiKey}`);
   //   console.log("[Auth] use user api key");
   // }
-  const apiKey = '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';
+  const apiKey = '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';
   req.headers.set("Authorization", `Bearer ${apiKey}`);
 
 // TODO: 根据实际情况解析 token 获取用户信息
