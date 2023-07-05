@@ -29,7 +29,7 @@ export const useAccessStore = create<AccessControlStore>()(
   persist(
     (set, get) => ({
       token: "",
-      accessCode: "s7QeqRmNamelAoYDfwloT3BlbkFJH6F4EDxonXUWGqa4EMND",
+      accessCode: "jMq4RXh79vVmTRJJEMCYT3BlbkFJu5GcNPyLWZumUPnu7rnA",
       needCode: true,
       hideUserApiKey: false,
       openaiUrl: "/api/openai/",

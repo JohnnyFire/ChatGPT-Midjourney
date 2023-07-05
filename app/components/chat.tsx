@@ -441,17 +441,6 @@ export function ChatActions(props: {
 
             <div
                 className={`${chatStyle["chat-input-action"]} clickable`}
-                onClick={nextModel}
-            >
-                {model === MJModel.Image ? (
-                    <ImageIcon/>
-                ) : model === MJModel.Text ? (
-                    <TextIcon/>
-                ) : <ImageIcon/>}
-            </div>
-
-            <div
-                className={`${chatStyle["chat-input-action"]} clickable`}
                 onClick={selectImage}
             >
                 <input
@@ -462,6 +451,17 @@ export function ChatActions(props: {
                     onChange={onImageSelected}
                 />
                 <UploadIcon/>
+            </div>
+
+            <div
+                className={`${chatStyle["chat-input-action"]} clickable`}
+                onClick={nextModel}
+            >
+                {model === MJModel.Image ? (
+                    <ImageIcon/>
+                ) : model === MJModel.Text ? (
+                    <TextIcon/>
+                ) : <ImageIcon/>}
             </div>
         </div>
     );
