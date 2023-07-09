@@ -402,7 +402,7 @@ export const useChatStore = create<ChatStore>()(
 
                 // make request
                 console.log("[User Input] ", sendMessages);
-                let model = 'image'
+                let model = 'text'
                 const value = localStorage.getItem('app-config');
                 if (value) {
                     const config = JSON.parse(value);

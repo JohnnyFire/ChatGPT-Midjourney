@@ -461,7 +461,7 @@ export function ChatActions(props: {
                     <ImageIcon/>
                 ) : model === MJModel.Text ? (
                     <TextIcon/>
-                ) : <ImageIcon/>}
+                ) : <TextIcon/>}
             </div>
         </div>
     );

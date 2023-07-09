@@ -26,7 +26,7 @@ export const DEFAULT_CONFIG = {
   avatar: "1f603",
   fontSize: 14,
   theme: Theme.Auto as Theme,
-  model: MJModel.Image as MJModel,
+  model: MJModel.Text as MJModel,
   tightBorder: false,
   sendPreviewBubble: true,
   sidebarWidth: 300,
