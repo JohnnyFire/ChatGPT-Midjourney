@@ -108,6 +108,18 @@ export function SideBar(props: { className?: string }) {
   const { onDragMouseDown, shouldNarrow } = useDragSideBar();
   const navigate = useNavigate();
   const config = useAppConfig();
+  const referralCode = localStorage.getItem('referralCode')
+  let model = 'image'
+  let modelD = 'MJ文作图'
+  const value = localStorage.getItem('app-config');
+  if (value) {
+      const config = JSON.parse(value);
+      model = config.state.model;
+      if (model === 'text'){
+        modelD = 'GPT-聊天'
+      }
+  }
+
 
   useHotKey();
 
@@ -119,12 +131,17 @@ export function SideBar(props: { className?: string }) {
     >
       <div className={styles["sidebar-header"]}>
         <div className={styles["sidebar-title"]}>
-          Midjourney画图识图
+          Midjourney+GPT
         </div>
-        <div className={styles["sidebar-sub-title"]}>芸爱智宝，您的智能服务管家。</div>
-        <div className={styles["sidebar-logo"] + " no-dark"}>
-          <ChatGptIcon />
-        </div>
+        <div className={styles["sidebar-sub-title"]} style={{ color: "red" }}><span color="red">芸爱智宝，您的智能服务管家。</span></div>
+        <div className={styles["sidebar-sub-title"]}>客服微信：<span style={{ color: "red" }}>yapd008</span></div>
+        <div className={styles["sidebar-sub-title"]}>举报电话：<span style={{ color: "red" }}>18925893643</span></div>
+        <div className={styles["sidebar-sub-title"]}>可以兼容GPT对话和MJ文作图，当前模式为<span style={{ color: "green" }}>{modelD}</span>，绘画框下方可调整切换</div>
+        <div className={styles["sidebar-sub-title"]}>我们通过了内容和设计审查，接入了多个平台包括国内平台，对于涉及到跨境传输的数据，我们会走国内平台，同时我们也开启了关键字审查。如发现不合规使用，请联系客服电话举报。</div>
+        <div className={styles["sidebar-sub-title"]}>推荐用户使用可延长使用时间，合作推广合伙人请联系客服微信</div>
+        <div className={styles["sidebar-sub-title"]}>您的推荐码: <span style={{ color: "red" }}>{referralCode}</span></div>
+        <div className={styles["sidebar-sub-title"]}>如果您订购的是第一个产品，请点击下方切换至<span style={{ color: "red" }}>纯GPT</span>模式</div>
+        
       </div>
 
       <div
@@ -160,11 +177,23 @@ export function SideBar(props: { className?: string }) {
               icon={<GithubIcon />}
               onClick={() => {
                 if (window.top !== null && window.top !== undefined) {
-                  window.top.location.href = "https://chat.yunai.com.cn/#/pay";
+                  window.top.location.href = "https://fun.yunai.com.cn/#/pay";
                 }
               }}
             />
           </div>
+        </div>
+        <div>
+          <IconButton
+            icon={<AddIcon />}
+            text={'纯GPT'}
+            onClick={() => {
+              if (window.top !== null && window.top !== undefined) {
+                window.top.location.href = "https://fun.yunai.com.cn/#/ai";
+              }
+            }}
+            shadow
+          />
         </div>
         <div>
           <IconButton

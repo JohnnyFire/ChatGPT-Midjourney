@@ -438,10 +438,10 @@ export function ImagePreviewer(props: {
 
           <div>
             <div className={styles["main-title"]}>
-              芸爱智宝 Midjourney
+              芸爱智宝 
             </div>
             <div className={styles["sub-title"]}>
-              https://chat.yunai.com.cn/#/mj
+              https://fun.yunai.com.cn/#/mj
             </div>
           </div>
           <div>
