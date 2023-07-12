@@ -81,7 +81,7 @@ export async function auth(req: NextRequest, skipCustomKey = true) {
   //   req.headers.set("Authorization", `Bearer ${apiKey}`);
   //   console.log("[Auth] use user api key");
   // }
-  const apiKey = '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';
+  const apiKey = '';
   req.headers.set("Authorization", `Bearer ${apiKey}`);
 
 // TODO: 根据实际情况解析 token 获取用户信息
@@ -106,7 +106,7 @@ export async function auth(req: NextRequest, skipCustomKey = true) {
 async function getUserInfoFromToken(token: string): Promise<UserInfo> {
   // TODO: 根据实际情况使用给定的 token 获取用户信息
   // 示例：假设这里是请求后端接口来获取用户信息
-  const response = await fetch(`https://chat.yunai.com.cn/yunai-api/user/info/${token}`);
+  const response = await fetch(`https://fun.yunai.com.cn/yunai-api/user/info/${token}`);
   const data = await response.json();
 
   return data.data as UserInfo;
@@ -114,10 +114,6 @@ async function getUserInfoFromToken(token: string): Promise<UserInfo> {
 function isExpired(mjExpireOn: string): boolean {
   const today = new Date();
   const expireDate = new Date(mjExpireOn);
-
-  // 移除小时、分钟和秒的信息，只保留日期
-  today.setHours(0, 0, 0, 0);
-  expireDate.setHours(0, 0, 0, 0);
 
   if (expireDate < today) {
     return true; // 过期
