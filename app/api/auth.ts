@@ -18,6 +18,7 @@ interface UserInfo {
   ifAgent: boolean;
   withdrawn: number;
   historyWithdrawn: number;
+  mjBalance: number;
 }
 
 // function getIP(req: NextRequest) {
@@ -92,10 +93,10 @@ export async function auth(req: NextRequest, skipCustomKey = true) {
     };
   }
   const userInfo = await getUserInfoFromToken(authToken0);
-  if(isExpired(userInfo.mjExpireOn)){
+  if(userInfo.mjBalance <= 0){
     return {
       error: true,
-      msg: "你好，"+userInfo.userName+" ，您的体验期已经于" + userInfo.mjExpireOn + "日过期，请您购买AI生图服务",
+      msg: "你好，"+userInfo.userName+" ，您的MidJourney画图余额不足，请您购买AI生图服务",
     };
   }
   return {
@@ -106,7 +107,7 @@ export async function auth(req: NextRequest, skipCustomKey = true) {
 async function getUserInfoFromToken(token: string): Promise<UserInfo> {
   // TODO: 根据实际情况使用给定的 token 获取用户信息
   // 示例：假设这里是请求后端接口来获取用户信息
-  const response = await fetch(`https://fun.yunai.com.cn/yunai-api/user/info/${token}`);
+  const response = await fetch(`https://auto.yunai.com.cn/yunai-api/user/info/${token}`);
   const data = await response.json();
 
   return data.data as UserInfo;

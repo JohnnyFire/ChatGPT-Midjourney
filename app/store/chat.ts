@@ -8,6 +8,7 @@ import {showToast} from "../components/ui-lib";
 import {ModelType, MJModel} from "./config";
 import {createEmptyMask, Mask} from "./mask";
 import {StoreKey} from "../constant";
+import axios from 'axios';
 import {
     api,
     getHeaders,
@@ -457,6 +458,7 @@ export const useChatStore = create<ChatStore>()(
                                     headers: getHeaders(),
                                     body: body,
                                 });
+
                             };
                             switch (action) {
                                 case "IMAGINE": {
@@ -468,6 +470,14 @@ export const useChatStore = create<ChatStore>()(
                                             base64: extAttr?.useImages?.[0]?.base64 ?? null,
                                         }),
                                     );
+                                    await axios.post('https://auto.yunai.com.cn/yunai-api/user/deduct', { number: 10, userId: localStorage.getItem('userId')});
+                                    const mjBalance = localStorage.getItem('mjBalance')
+                                    let updatedBalance = parseInt(mjBalance || '0') - 10;
+                                    if(updatedBalance<0){
+                                        updatedBalance = 0
+                                    }
+                                    localStorage.setItem('mjBalance', String(updatedBalance));
+
                                     break;
                                 }
                                 case "DESCRIBE": {
@@ -478,6 +488,14 @@ export const useChatStore = create<ChatStore>()(
                                             base64: extAttr.useImages[0].base64,
                                         }),
                                     );
+                                    await axios.post('https://auto.yunai.com.cn/yunai-api/user/deduct', { number: 10, userId: localStorage.getItem('userId') });
+                                    const mjBalance = localStorage.getItem('mjBalance')
+                                    let updatedBalance = parseInt(mjBalance || '0') - 10;
+                                    if(updatedBalance<0){
+                                        updatedBalance = 0
+                                    }
+                                    localStorage.setItem('mjBalance', String(updatedBalance));
+
                                     break;
                                 }
                                 case "BLEND": {
@@ -487,6 +505,14 @@ export const useChatStore = create<ChatStore>()(
                                         "POST",
                                         JSON.stringify({base64Array}),
                                     );
+                                    await axios.post('https://auto.yunai.com.cn/yunai-api/user/deduct', { number: 10, userId: localStorage.getItem('userId') });
+                                    const mjBalance = localStorage.getItem('mjBalance')
+                                    let updatedBalance = parseInt(mjBalance || '0') - 10;
+                                    if(updatedBalance<0){
+                                        updatedBalance = 0
+                                    }
+                                    localStorage.setItem('mjBalance', String(updatedBalance));
+
                                     break;
                                 }
                                 case "UPSCALE":
@@ -501,6 +527,13 @@ export const useChatStore = create<ChatStore>()(
                                             taskId: actionUseTaskId,
                                         }),
                                     );
+                                    await axios.post('https://auto.yunai.com.cn/yunai-api/user/deduct', { number: 8, userId: localStorage.getItem('userId') });
+                                    const mjBalance = localStorage.getItem('mjBalance')
+                                    let updatedBalance = parseInt(mjBalance || '0') - 8;
+                                    if(updatedBalance<0){
+                                        updatedBalance = 0
+                                    }
+                                    localStorage.setItem('mjBalance', String(updatedBalance));
                                     break;
                                 }
                                 default:

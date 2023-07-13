@@ -110,7 +110,7 @@ export function SideBar(props: { className?: string }) {
   const config = useAppConfig();
   const referralCode = localStorage.getItem('referralCode')
   let model = 'image'
-  let modelD = 'MJ文作图'
+  let modelD = 'MJ文生图'
   const value = localStorage.getItem('app-config');
   if (value) {
       const config = JSON.parse(value);
@@ -131,16 +131,48 @@ export function SideBar(props: { className?: string }) {
     >
       <div className={styles["sidebar-header"]}>
         <div className={styles["sidebar-title"]}>
-          Midjourney+GPT
+          Midjourney+智能聊天
         </div>
-        <div className={styles["sidebar-sub-title"]} style={{ color: "red" }}><span color="red">芸爱智宝，您的智能服务管家，我们推崇极简实用，反对各种薅羊毛机制。</span></div>
+        <div className={styles["sidebar-sub-title"]} style={{ color: "red" }}><span color="red">芸爱智宝，您的智能服务管家，我们推崇极简。</span></div>
         <div className={styles["sidebar-sub-title"]}>客服微信：<span style={{ color: "red" }}>yapd008</span></div>
-        <div className={styles["sidebar-sub-title"]}>举报电话：<span style={{ color: "red" }}>18925893643</span></div>
+        <div className={styles["sidebar-sub-title"]}>客服热线：<span style={{ color: "red" }}>18925893643</span></div>
         <div className={styles["sidebar-sub-title"]}>此页面可以同时兼容GPT对话和MJ文作图，当前模式为<span style={{ color: "green" }}>{modelD}</span>，对话框下方可调整切换。
-          <span style={{ color: "red" }}>我们的跟官方MidJourney合作，为回馈用户，我们对付费客户均为Fast Mode，后台任务保留24小时。</span>
-          我们通过了内容和设计审查，接入了多个平台包括国内平台，对于涉及到跨境传输的数据，我们会走国内平台，同时我们也开启了关键字审查。如发现不合规使用，请联系客服电话举报。
-          推荐用户使用可延长使用时间，合作推广合伙人请联系客服微信，您的推荐码: <span style={{ color: "red" }}>{referralCode}</span>,您可点击<a href="https://fun.yunai.com.cn/#/my" target="_blank"><span style={{ color: "red" }}>个人信息及返现</span></a>查看。
-          程序员推荐使用价格低廉的纯GPT如果您订购的是第一个纯GPT产品，请点击切换至<a href="https://fun.yunai.com.cn/#/ai" target="_blank"><span style={{ color: "red" }}>纯GPT</span></a>模式。
+          <table>
+            <thead>
+              <tr>
+                <th>计费模式</th>
+                <th>消耗额度</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>绘画</td>
+                <td>10</td>
+              </tr>
+              <tr>
+                <td>混图</td>
+                <td>10</td>
+              </tr>
+              <tr>
+                <td>识图</td>
+                <td>10</td>
+              </tr>
+              <tr>
+                <td>变换</td>
+                <td>8</td>
+              </tr>
+              <tr>
+                <td>重新作图</td>
+                <td>8</td>
+              </tr>
+              <tr>
+                <td>放大</td>
+                <td>8</td>
+              </tr>
+            </tbody>
+          </table>
+          推荐用户使用可延长使用时间，合作推广合伙人请联系客服微信，您的推荐码: <span style={{ color: "red" }}>{referralCode}</span>,您可点击<a href="https://auto.yunai.com.cn/#/my" target="_blank"><span style={{ color: "red" }}>个人信息及返现</span></a>查看。
+          程序员推荐使用价格低廉的纯GPT如果您订购的是第一个纯GPT产品，请点击切换至<a href="https://auto.yunai.com.cn/#/ai" target="_blank"><span style={{ color: "red" }}>纯GPT</span></a>模式。
         </div>
         <div className={styles["sidebar-sub-title"]}>关注公众号，服务不失踪</div>
         <div className={styles["sidebar-sub-title"]}><img src="https://yunaichatgpt.oss-rg-china-mainland.aliyuncs.com/static/img/yazb.bmp" alt="芸爱智宝" width="270" height="100"/></div>
@@ -180,7 +212,7 @@ export function SideBar(props: { className?: string }) {
               text={'充值'}
               onClick={() => {
                 if (window.top !== null && window.top !== undefined) {
-                  window.top.location.href = "https://fun.yunai.com.cn/#/pay";
+                  window.top.location.href = "https://auto.yunai.com.cn/#/pay";
                 }
               }}
             />
@@ -192,7 +224,7 @@ export function SideBar(props: { className?: string }) {
             text={'纯GPT'}
             onClick={() => {
               if (window.top !== null && window.top !== undefined) {
-                window.top.location.href = "https://fun.yunai.com.cn/#/ai";
+                window.top.location.href = "https://auto.yunai.com.cn/#/ai";
               }
             }}
             shadow

@@ -452,16 +452,22 @@ export function ChatActions(props: {
                 />
                 <UploadIcon/>
             </div>
-
+            
             <div
                 className={`${chatStyle["chat-input-action"]} clickable`}
                 onClick={nextModel}
             >
                 {model === MJModel.Image ? (
-                    <ImageIcon/>
+                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                        <ImageIcon style={{ verticalAlign: 'middle', marginRight: '2px' }} />
+                        <div style={{ display: 'flex', alignItems: 'baseline' }}>
+                            <span>余额：</span>
+                            <span>{localStorage.getItem("mjBalance")}</span>
+                        </div>
+                    </div>
                 ) : model === MJModel.Text ? (
-                    <TextIcon/>
-                ) : <TextIcon/>}
+                    <TextIcon style={{ verticalAlign: 'middle' }}/>
+                ) : <TextIcon style={{ verticalAlign: 'middle' }}/>}
             </div>
         </div>
     );

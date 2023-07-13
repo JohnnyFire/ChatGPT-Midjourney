@@ -441,7 +441,7 @@ export function ImagePreviewer(props: {
               芸爱智宝 
             </div>
             <div className={styles["sub-title"]}>
-              https://fun.yunai.com.cn/#/mj
+              https://auto.yunai.com.cn/#/mj
             </div>
           </div>
           <div>

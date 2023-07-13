@@ -3,7 +3,7 @@ import { SubmitKey } from "../store/config";
 const cn = {
   WIP: "该功能仍在开发中……",
   Error: {
-    Unauthorized: "您的会员体验已到期，请前往[会员服务](/#/pay)页了解更多。",
+    Unauthorized: "您的余额不足，请前往[会员服务](/#/pay)页了解更多。",
   },
   Auth: {
     Title: "需要密码",
@@ -27,7 +27,7 @@ const cn = {
     TaskErrNotSupportType: (type: string) =>
       `任务提交失败：不支持的任务类型 -> ${type}`,
     StatusCode: (code: number) => `状态码：${code}`,
-    TaskSubmitErr: (err: string) => `任务提交失败：长时间未操作，登录已过期||体验已到期，刷新/重新登录如问题依然存在麻烦添加微信yapd008获取更多帮助 ${err}`,
+    TaskSubmitErr: (err: string) => `任务提交失败：长时间未操作，登录已过期||画图余额不足，刷新/重新登录如问题依然存在麻烦添加微信yapd008获取更多帮助 ${err}`,
     RespBody: (body: string) => `响应体：${body}`,
     None: "无",
     UnknownError: "未知错误",
