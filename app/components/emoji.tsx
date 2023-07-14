@@ -29,7 +29,7 @@ export function AvatarPicker(props: {
   );
 }
 
-export function Avatar(props: { model?: ModelType; avatar?: string }) {
+export function ChatAvatar(props: { model?: ModelType; avatar?: string }) {
   if (props.model) {
     return (
       <div className="no-dark">
@@ -45,6 +45,26 @@ export function Avatar(props: { model?: ModelType; avatar?: string }) {
   return (
     <div className="user-avatar">
       {props.avatar && <img src={props.avatar} alt="User Avatar" style={{ width: 30, height: 30, borderRadius: '10px' }}/>}
+    </div>
+  );
+}
+
+export function Avatar(props: { model?: ModelType; avatar?: string }) {
+  if (props.model) {
+    return (
+      <div className="no-dark">
+        {props.model?.startsWith("gpt-4") ? (
+          <BlackBotIcon className="user-avatar" />
+        ) : (
+          <BotIcon className="user-avatar" />
+        )}
+      </div>
+    );
+  }
+
+  return (
+    <div className="user-avatar">
+      {props.avatar && <EmojiAvatar avatar={props.avatar} />}
     </div>
   );
 }

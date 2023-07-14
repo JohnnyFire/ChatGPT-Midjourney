@@ -59,7 +59,7 @@ import chatStyle from "./chat.module.scss";
 import {ListItem, Modal} from "./ui-lib";
 import {useLocation, useNavigate} from "react-router-dom";
 import {LAST_INPUT_KEY, Path, REQUEST_TIMEOUT_MS} from "../constant";
-import {Avatar} from "./emoji";
+import {Avatar, ChatAvatar} from "./emoji";
 import {MaskAvatar, MaskConfig} from "./mask";
 import {useMaskStore} from "../store/mask";
 import {useCommand} from "../command";
@@ -456,18 +456,26 @@ export function ChatActions(props: {
             <div
                 className={`${chatStyle["chat-input-action"]} clickable`}
                 onClick={nextModel}
+                style={{ backgroundColor: 'lightgreen' }}
             >
                 {model === MJModel.Image ? (
-                    <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <ImageIcon style={{ verticalAlign: 'middle', marginRight: '2px' }} />
+                    <div style={{ display: 'flex', alignItems: 'center',backgroundColor: 'lightgreen' }}>
                         <div style={{ display: 'flex', alignItems: 'baseline' }}>
-                            <span>余额：</span>
-                            <span>{localStorage.getItem("mjBalance")}</span>
+                            <span style={{ color: 'darkblue' }} >绘图 余额：</span>
+                            <span style={{ color: 'darkblue' }}>{localStorage.getItem("mjBalance")}</span>
                         </div>
                     </div>
                 ) : model === MJModel.Text ? (
-                    <TextIcon style={{ verticalAlign: 'middle' }}/>
-                ) : <TextIcon style={{ verticalAlign: 'middle' }}/>}
+                    <div style={{ display: 'flex', alignItems: 'center',backgroundColor: 'lightgreen' }}>
+                        <div style={{ display: 'flex', alignItems: 'baseline' }}>
+                            <span style={{ color: 'darkblue' }} >智能聊天</span>
+                        </div>
+                    </div>
+                ) : <div style={{ display: 'flex', alignItems: 'center',backgroundColor: 'lightgreen' }}>
+                        <div style={{ display: 'flex', alignItems: 'baseline' }}>
+                            <span style={{ color: 'darkblue' }} >智能聊天</span>
+                        </div>
+                    </div>}
             </div>
         </div>
     );
@@ -882,7 +890,7 @@ export function Chat() {
                                 <div className={styles["chat-message-container"]}>
                                     <div className={styles["chat-message-avatar"]}>
                                         {message.role === "user" ? (
-                                            <Avatar avatar={localStorage.getItem('avatar') ?? 'https://thirdwx.qlogo.cn/mmopen/vi_32/1vE4Mon2duwpq1ia1U56tGfaDSGlLqg0AMIkCOg7Hh8dwl5toWxYUGic57icZ39vXcAYSr4WuA6aeSRBiazNGnPO1Q/132'} />
+                                            <ChatAvatar avatar={localStorage.getItem('avatar') ?? 'https://thirdwx.qlogo.cn/mmopen/vi_32/1vE4Mon2duwpq1ia1U56tGfaDSGlLqg0AMIkCOg7Hh8dwl5toWxYUGic57icZ39vXcAYSr4WuA6aeSRBiazNGnPO1Q/132'} />
                                         ) : (
                                             <MaskAvatar mask={session.mask}/>
                                         )}

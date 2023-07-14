@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getServerSideConfig } from "../config/server";
 import md5 from "spark-md5";
 import { ACCESS_CODE_PREFIX } from "../constant";
-
+const serverConfig = getServerSideConfig();
 interface UserInfo {
   userId: string;
   openId: string;
@@ -82,7 +82,7 @@ export async function auth(req: NextRequest, skipCustomKey = true) {
   //   req.headers.set("Authorization", `Bearer ${apiKey}`);
   //   console.log("[Auth] use user api key");
   // }
-  const apiKey = '';
+  const apiKey = serverConfig.apiKey;
   req.headers.set("Authorization", `Bearer ${apiKey}`);
 
 // TODO: 根据实际情况解析 token 获取用户信息
